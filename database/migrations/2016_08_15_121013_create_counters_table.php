@@ -14,6 +14,9 @@ class CreateCountersTable extends Migration
     {
         Schema::create('counters', function (Blueprint $table) {
 
+            // HERO COUNTERS HERO OR ITEM COUNTERS HERO OR ITEM COUNTERS ITEM OR SPELL COUNTERS SPELL OR
+            // ITEM COUNTERS SPELL OR SPELL COUNTERS ITEM
+
             $table->increments('id');
             $table->integer('countered_hero_id')->unsigned();
             $table->integer('counter_hero_id')->unsigned();
