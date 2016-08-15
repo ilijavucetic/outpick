@@ -21,4 +21,11 @@ class Item extends Model
     {
         return $this->hasOne('App\Counter', 'countered_item_id');
     }
+
+    public function build()
+    {
+        return $this->belongsTo('App\Build');
+    }
+
+
 }

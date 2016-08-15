@@ -24,7 +24,7 @@ class CreateHeroesTable extends Migration
             $table->timestamps();
         });
 
-        
+
     }
 
     /**

@@ -15,7 +15,7 @@ class CreateSpellsTable extends Migration
         Schema::create('spells', function (Blueprint $table) {
 
             $table->increments('id');
-            $table->integer("hero_id");
+            $table->integer("hero_id")->unsigned();
             $table->string('name');
             $table->text('description');
             $table->string('image');
@@ -23,6 +23,8 @@ class CreateSpellsTable extends Migration
             $table->string("manacost");
             $table->time("cooldown");
             $table->timestamps();
+
+            $table->foreign('hero_id')->references('id')->on('heroes');
         });
 
     }
