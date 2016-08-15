@@ -16,4 +16,14 @@ class Spell extends Model
     {
         return $this->belongsTo('App\Hero');
     }
+
+    public function countered_spell()
+    {
+        return $this->hasOne('App\Counter', 'countered_spell_id');
+    }
+
+    public function counter_spell()
+    {
+        return $this->hasOne('App\Counter', 'counter_spell');
+    }
 }

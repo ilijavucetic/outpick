@@ -22,7 +22,6 @@ class CreateSpellsTable extends Migration
             $table->enum("type", ["q", "w", "e", "r", "x"]);
             $table->string("manacost");
             $table->time("cooldown");
-
             $table->timestamps();
         });
 

@@ -12,8 +12,19 @@ use Illuminate\Database\Eloquent\Model;
 class Hero extends Model
 {
 
-    public function spells()
+    public function spell()
     {
         return $this->hasMany('App\Spell');
     }
+
+    public function countered_hero()
+    {
+        return $this->hasOne('App\Counter', 'countered_hero_id');
+    }
+
+    public function counter_hero()
+    {
+        return $this->hasOne('App\Counter', 'counter_hero_id');
+    }
+
 }
