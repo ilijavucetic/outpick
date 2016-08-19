@@ -14,3 +14,20 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
+
+
+//Route::get('/heroes', 'HeroController@list_all');
+Route::get('/heroes',  ['uses' => 'HeroController@list_all',
+    'as' => 'heroes']);
+
+Route::post('/add_hero', [
+    'uses' => 'HeroController@addHero',
+    'as' => 'hero.add',
+
+]);
+
+
