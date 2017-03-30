@@ -24,6 +24,9 @@ Route::get('/home', 'HomeController@index');
 Route::get('/heroes',  ['uses' => 'HeroController@list_all',
     'as' => 'heroes']);
 
+Route::get('/hero/{hero_id}',  ['uses' => 'HeroController@view_details',
+    'as' => 'hero.details']);
+
 Route::post('/add_hero', [
     'uses' => 'HeroController@addHero',
     'as' => 'hero.add',

@@ -20,7 +20,18 @@ class HeroController extends Controller
 
     public function list_all()
     {
-        return view('heroes');
+        $heroes = Hero::orderBy('id', 'desc')->get();
+        return view('heroes', ["heroes" => $heroes]);
+
+    }
+
+    public function view_details($hero_id){
+
+        $hero = Hero::where('id', $hero_id)->first();
+        return view('hero', ["hero" => $hero]);
+
+//        return redirect()->route('hero')->with(
+//            ["hero" => $hero]);
     }
 
     public function addHero(Request $request)
@@ -43,7 +54,7 @@ class HeroController extends Controller
             $hero = new Hero();
             $hero -> name = $request['name'];
             $hero -> description = $request['description'];
-            $hero -> image = $fileName;
+            $hero -> image = 'images/'. $fileName;
             $hero -> type = $request['type'];
             $hero -> attack_type = $request['attack_type'];
 
