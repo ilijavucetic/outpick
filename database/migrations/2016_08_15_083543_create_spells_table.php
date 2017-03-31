@@ -19,7 +19,12 @@ class CreateSpellsTable extends Migration
             $table->string('name');
             $table->text('description');
             $table->string('image');
-            $table->enum("type", ["q", "w", "e", "r", "x"]);
+            $table->enum('ability_type', ['Point Target', 'No Target', 'Aura', 'None']);
+            $table->enum('affects', ['Self', 'Enemies', 'Allies', 'None']);
+            $table->enum('damage_type', ['Magical', 'Physical', 'Pure']);
+            $table->string('radius');
+            $table->boolean('pierces_spell_immunity');
+            $table->enum("spell_order", ["q", "w", "e", "r", "x"]);
             $table->string("manacost");
             $table->time("cooldown");
             $table->timestamps();
